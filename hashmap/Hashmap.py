@@ -1,11 +1,23 @@
 import pandas as pd
+import numpy as np
 Names = pd.read_csv('FirstName,LastName.csv')
+df_patients = pd.DataFrame(Names)
 
 # make it so its the size of the csv then make it randomly select things from the csv
+PATIENTLENGTH =  len(df_patients)
+rand_int = np.random.randint(0,PATIENTLENGTH)
+
+randPatient = df_patients.iloc[rand_int]
+
+
+print(PATIENTLENGTH)
+print(rand_int)
+print(randPatient)
 # make it so it takes the csv and crops it accordingly
 # Basic thing from W3 school that we can edit and input
+
 class HashMap:
-        def __init__(self, size=100):
+        def __init__(self, size=PATIENTLENGTH):
             self.size = size
             self.buckets = [[]for _ in range(size)]
         
