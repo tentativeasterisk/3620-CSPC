@@ -1,18 +1,25 @@
 import pandas as pd
 import numpy as np
-Names = pd.read_csv('FirstName,LastName.csv')
-df_patients = pd.DataFrame(Names)
+PATIENTLENGTH =  10 #len(df_patients) # will insert later
+
+def read_csv():
+    names = pd.read_csv('FirstName,LastName.csv')
+    df_patients = pd.DataFrame(names)
+    return df_patients
 
 # make it so its the size of the csv then make it randomly select things from the csv
-PATIENTLENGTH =  len(df_patients)
-rand_int = np.random.randint(0,PATIENTLENGTH)
 
-randPatient = df_patients.iloc[rand_int]
+def randPatientGen(df_patients):
+    rand_int = np.random.randint(0,PATIENTLENGTH)
+    randPatient = df_patients.iloc[rand_int]
+    return randPatient
 
+def hasher(df_patients):
+    for row in df_patients.itertuples():
+        print(row)
 
-print(PATIENTLENGTH)
-print(rand_int)
-print(randPatient)
+    return
+
 # make it so it takes the csv and crops it accordingly
 # Basic thing from W3 school that we can edit and input
 
@@ -59,4 +66,6 @@ class HashMap:
             print("Hash Map Contents:")
             for index, bucket in enumerate(self.buckets):
                 print(f"Bucket {index}: {bucket}")
-        
+
+df_patients = read_csv()
+hasher(df_patients)        
